@@ -51,11 +51,10 @@ class HomeController extends Controller
      public function quickview($slug){
         $product = Product::with(['gallery_products','product_details', 'vendor'])->where('slug', $slug)->first();
         $colors = ProductDetail::where('product_id', $product->id)
-        ->join('colors', 'product_details.color_id', '=', 'colors.id')->select('colors.code_color','colors.id as color_id', 'product_details.product_id','product_details.id')->get();
-        ;
+        ->join('colors', 'product_details.color_id', '=', 'colors.id')->select('colors.code_color','colors.id as color_id', 'product_details.product_id')->distinct('color_id')->get();
 
         $sizes = ProductDetail::where('product_id', $product->id)
-        ->join('sizes', 'product_details.size_id', '=', 'sizes.id')->select('sizes.name','sizes.id as size_id', 'product_details.product_id','product_details.id')->orderBy('size_id', 'desc')->get();
+        ->join('sizes', 'product_details.size_id', '=', 'sizes.id')->select('sizes.name','sizes.id as size_id', 'product_details.product_id')->distinct('size_id')->orderBy('size_id', 'desc')->get();
         ;
         $vendor = Vendor::find($product->vendor_id);
 

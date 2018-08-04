@@ -310,6 +310,7 @@ class ProductsController extends Controller
        public function destroyImages($id)
     {   
         $image = GalleryProduct::find($id);
+        Storage::delete($image->link);
         $image->delete();
         Session::flash('success', 'Delete Image Success');
 
