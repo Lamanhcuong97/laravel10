@@ -1,0 +1,149 @@
+*{
+	margin:0;
+}
+
+body{
+	font-size: 14px;
+}
+
+.btn-add-post{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+div.pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+    margin: auto;
+}
+
+.page-item.active .page-link {
+    background-color: #9c8156;
+    border-color: #9c8156;
+}
+
+.page-link {
+    color: #9c8156;
+}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0px !important;
+}
+
+.skin-blue .main-header .navbar {
+    background-color:#222d32;
+}
+
+.skin-blue .main-header .logo {
+    background-color: #222d32;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #fff !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #222d32 !important; 
+    border: 1px solid #222d32 !important;
+    padding: 2px 5px !important;
+}
+
+
+nav {
+     margin-top: 5px !important; 
+   
+}
+
+.tada-social {
+    margin-top: 5px !important;
+    display: block;
+    text-align: center;
+}
+
+nav > ul {
+     padding: 0px 0px; 
+}
+
+#constraint{
+    color: red;
+}
+.card-login{
+            width: 55%;
+            margin: auto;
+            /*margin-top: 24vh;*/
+            background: #eceef1;
+        }
+
+
+        .card-register{
+            width: 80%;
+            margin: auto;
+            /*margin-top: 15vh;*/
+            background: #eceef1;
+        }
+
+        .card-header{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: serif;
+            color: #2a9caf;
+        }
+
+        .card-body {
+             padding: 1.25rem 0; 
+        }
+
+        .text-md-left{
+            text-align: left;
+            margin-left: 15px;
+        }
+
+        label {
+            margin-left: 1rem;
+            display: inline-block;
+            margin-bottom: .5rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-left{
+            width: 90%;
+            margin-left:17px;
+           
+            /*margin: 0 5px;*/
+           
+
+        }
+
+        .btn-right{
+            width: 90%;
+           
+           
+        }
+
+        .btn-right a{
+            color: #fff; 
+            width: 100%;
+        }
+
+        .btn-right a:hover{
+            text-decoration: none; 
+        }
+
+        .title{
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+            margin-top: 15vh;
+
+        }
+
+        .title span{
+            color: #f19a13;
+
+        }
