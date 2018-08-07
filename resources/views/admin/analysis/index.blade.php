@@ -6,13 +6,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Products Management
+         Analysis 
         <small></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Products Management</a></li>
-        <li class="active">List Products</li>
+        <li><a href="#">Analysis </a></li>
+        <li class="active">Analysis Year</li>
       </ol>
     </section>
     	<script type="text/javascript">
@@ -37,13 +37,13 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Danh sách sản phẩm</h3>
+              <h3 class="box-title">Thông kê theo năm</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-        		<form action="{{ route('analysis.search') }}" method="POST" class="form-inline" role="form">
+        		<form action="{{ route('analysis.searchYear') }}" method="POST" class="form-inline" role="form">
               @csrf
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <label class="sr-only" for="">Day</label>
                 <input type="date" class="form-control" name="day_month_year" id="" placeholder="Enter Day">
               </div>
@@ -52,7 +52,7 @@
                 <label class="sr-only" for="">Month</label>
                 <input type="month" class="form-control" id="" name="month_year" placeholder="Enter Month">
               </div>
-
+ --}}
               <div class="form-group">
                 <label class="sr-only" for="">Year</label>
                 <input type="number" class="form-control" name="year" placeholder="YYYY" min="2017" max="2100">
@@ -86,7 +86,7 @@
               <div class="panel-heading">
                 <h3 class="panel-title">Thống kê  ~~  
                   @if(isset($search))
-                      <span style="color: red;">{{$search}}</span>
+                      <span style="color: red;" id="year">{{$search}}</span>
                   @endif
                   ~~
                 </h3>
@@ -97,18 +97,39 @@
                       <thead>
                         <tr>
                           <th>Số sản phẩm bán </th>
-                          <th>Tổng tiền  </th>
+                          <th>Tổng doanh thu </th>
+                          <th>Tổng tiền lãi </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          @if(isset($number_products))
-                          <td>{{number_format($number_products)}}</td>
-                          <td>{{number_format($total)}}</td>
+                          @if(isset($number_product_year))
+                          <td>{{number_format($number_product_year)}}</td>
+                          <td>{{number_format($income_year)}}</td>
+                          <td>{{number_format($interest_year)}}</td>
                           @endif
                         </tr>
                       </tbody>
                     </table>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-10"></div>
+                    <div class="col-xs-2">
+                      @if(isset($number_product_year))
+                      <form action="{{ route('analysis.pdf') }}" method="POST" class="form-inline" role="form">
+                        @csrf
+                        <div class="form-group" style="display: none;">
+                          <label class="sr-only" for="">Year</label>
+                          <input type="text" class="form-control" id="" name="year" value="{{$search}}" placeholder="Input field">
+                        </div>
+                      
+                        
+                      
+                        <button class="btn btn-primary btn-report" style="align-self: right;">In báo cáo</button>
+                      </form>
+                      @endif
+                    </div>
                   </div>
               </div>
             </div>
@@ -138,6 +159,19 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
  <script type="text/javascript">
+    $(document).on('click','.btn-report', function(){
+       year =  $('#year').text();
+       if (year != '') {
+           $.ajax({
+                type: 'post',
+                url: 'generate-pdf',
+                data: {year:year},
+                success: function(response){
+                  console.log(response)
+                }
+            })
+       }
+    })
 
     var ctx = document.getElementById("myChart");
     var ctx = document.getElementById("myChart").getContext("2d");

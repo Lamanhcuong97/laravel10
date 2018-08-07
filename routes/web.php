@@ -19,6 +19,10 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/checkout', 'HomeController@checkout')->name('checkout');
 Route::get('/cart', 'HomeController@cart')->name('viewcart');
+Route::get('/list/{slug}', 'HomeController@list')->name('list');
+Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::resource('/carts', 'CartsController');
 Route::post('/carts', 'CartsController@addCart')->name('carts.add');
 Route::post('/carts/minus', 'CartsController@minus')->name('carts.minus');
@@ -79,9 +83,21 @@ Route::prefix('admin')->group(function () {
 
         // Analysis
         Route::get('analysis', 'Admin\AnalysisController@index')->name('analysis.index');
-        Route::post('analysis', 'Admin\AnalysisController@search')->name('analysis.search');
+        Route::get('analysis/analysis_day_month', 'Admin\AnalysisController@analysis_day_month')->name('analysis.analysis_day_month');
+        Route::post('analysis/search_year', 'Admin\AnalysisController@searchYear')->name('analysis.searchYear');
+        Route::post('analysis/search_day_month', 'Admin\AnalysisController@searchDayOrMonth')->name('analysis.searchDayOrMonth');
         Route::get('analysis_products', 'Admin\AnalysisController@analysis_products')->name('analysis.products');
-        Route::get('selling products', 'Admin\AnalysisController@selling products')->name('analysis.selling products');
+        Route::post('product_best_seller', 'Admin\AnalysisController@product_best_seller')->name('analysis.product_best_seller');
+        Route::post('analysis/generate-pdf','Admin\AnalysisController@generatePDF')->name('analysis.pdf');
+
+        // Slider
+        Route::get('sliders', 'Admin\SlidersController@index')->name('sliders.index');
+        Route::post('sliders', 'Admin\SlidersController@store')->name('sliders.create');
+        Route::get('sliders/list', 'Admin\SlidersController@images')->name('sliders.list');
+        Route::delete('sliders/{id}', 'Admin\SlidersController@destroy')->name('sliders.delete');
+
+        // Promotions
+        Route::resource('promotions', 'Admin\PromotionsController');
 
     Route::resource('tags', 'Admin\TagsController');
 

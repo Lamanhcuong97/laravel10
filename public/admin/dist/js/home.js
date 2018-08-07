@@ -1,5 +1,7 @@
 $(document).ready(function(){
-
+    $('.modal').on('hidden.bs.modal', function(e){ 
+       $('form').trigger("reset");
+    }) ;
        
   var close_modal = function(){
       $('.modal').on('hidden.bs.modal', function(e){ 
@@ -462,9 +464,9 @@ $(document).ready(function(){
 
     $(document).on('click','.btn-edit', function(){
       $('#modal-edit-product').modal('show');
-        
+        $('form').trigger("reset");
       id = $(this).data('id');
-
+       close_modal();
       $('.btn-update-product').attr('data-id', id);
       $.ajax({
           type: 'get',

@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="modal-images">
+<div class="modal fade" id="modal-create-slider">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -9,14 +9,7 @@
 			<div class="modal-body">
 			 	<form class="form-inline images-preview" action="" method="PUT" role="form" id="form-upload-images" enctype="multipart/form-data">
 			 		@csrf
-			 		<div class="form-group">
-					    <label>Color <span id = "constraint">*</span></label>  
-                        <select class=" form-control" name="color_id" id="color_id">
-                            @foreach($colors as $color)
-                                <option value="{{$color->id}}">{!!$color->name!!}</option>
-                            @endforeach
-                        </select>
-					</div>
+			 		
 					<div class="form-group">
 					   	<div class="field" align="left">
 			                <input type="file" id="images_modal" name="images[]" multiple />
@@ -31,8 +24,6 @@
 		</div>
 	</div>
 </div>
-
-
 
 <div class="modal fade" id="modal-edit-color">
 	<div class="modal-dialog modal-sm">

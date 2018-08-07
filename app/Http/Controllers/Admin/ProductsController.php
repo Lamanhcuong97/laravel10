@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\CreateProductRequest;
 use Yajra\Datatables\Datatables;
 use DB;
 use App\GalleryProduct;
@@ -123,7 +124,7 @@ class ProductsController extends Controller
     {
         $product_id = $request->id ?: 'NULL';
         $request->validate([
-            'quantity' => 'required',
+            'quantity' => 'required|min:0',
             'size_id'  =>  'required|unique:product_details,size_id,color_id,NULL,id,product_id,'.$id,
         ]);
         $product_detail = new ProductDetail();

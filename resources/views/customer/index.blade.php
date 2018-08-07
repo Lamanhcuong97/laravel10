@@ -384,7 +384,7 @@
 								<div class="slider-blog__item">
 									<div class="row">
 										<div class="col-xs-12 col-sm-2 col-sm-offset-3 box-foto">
-											<img src="{{ asset('storage/images/37884737_665746400444142_2426106521612976128_n.jpg') }}" alt="">
+											<img src="{{ asset('storage/images/binh.jpg') }}" alt="">
 										</div>
 										<div class="col-xs-12 col-sm-5 box-data">
 											<h6>BINH BOONG  <em>&nbsp;-&nbsp;  designer</em></h6>

@@ -14,7 +14,7 @@
 						<!-- SLIDE -1 -->
 						<li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide">
 							<!-- MAIN IMAGE --> 
-							<img src="https://images.pexels.com/photos/631988/pexels-photo-631988.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"  alt="slide1"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" > 
+							<img src="{{ asset($slider[0]->link) }}"  alt="slide1"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" > 
 							<!-- LAYERS --> 
 							<!-- TEXT -->
 							<div class="tp-caption lfl stb" 
@@ -36,7 +36,7 @@
 						<!-- SLIDE 2  -->            
 						<li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide">
 							<!-- MAIN IMAGE --> 
-							<img src="https://images.pexels.com/photos/981254/pexels-photo-981254.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"  alt="slide2"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"> 
+							<img src="{{ asset($slider[1]->link) }}"  alt="slide2"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"> 
 							<!-- LAYERS -->
 							<!-- TEXT -->
 							<div class="tp-caption lfr stb" 
@@ -58,7 +58,7 @@
 						<!-- /SLIDE 2  -->						
 						<!-- SLIDE - 3 -->
 						<li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide">
-										<img src="https://images.pexels.com/photos/1070360/pexels-photo-1070360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"  alt="slide3"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+										<img src="{{ asset($slider[3]->link) }}"  alt="slide3"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
 									<!-- LAYER NR. 1 -->
 									<div class="tp-caption tp-fade fadeout fullscreenvideo"
 										data-x="0"

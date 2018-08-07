@@ -33,7 +33,7 @@ $(document).ready(function(){
     	$('.product-main-image__item').html('');
 		$.ajax({
 			type: 'get',
-            url:'products/quickview/'+slug ,
+            url:app_url+'products/quickview/'+slug ,
             success: function(response){
             	console.log(response);
             	$('.product-info__title').append('<h2>'+response.product.name+'</h2>');

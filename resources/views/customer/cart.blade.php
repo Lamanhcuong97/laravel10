@@ -9,6 +9,7 @@
 					<h1 class="text-center text-uppercase title-under">SHOPPING CART</h1>
 				</div>
 				<!-- /title -->		
+				@if(Cart::total() != 0)
 				<!-- Shopping cart table -->
 				<div class="container-widget">
 					<table class="shopping-cart-table">
@@ -139,8 +140,41 @@
 							</div>
 						</div>
 					</div>
-				</div>				
+				</div>
+				@else
+					<div class="breadcrumbs">
+						<div class="container">
+							<ol class="breadcrumb breadcrumb--ys pull-left">
+								<li class="home-link"><a href="{{ route('home') }}" class="icon icon-home"></a></li>										
+								<li class="active">Empty Cart</li>
+							</ol>
+						</div>
+					</div>
+					<!-- /breadcrumbs --> 
+					<!-- CONTENT section -->
+					<div id="pageContent">
+						<div class="container">				
+							<!-- title -->
+							<div class="title-box">
+								<h1 class="text-center text-uppercase title-under">Shopping Cart is Empty</h1>
+							</div>
+							<!-- /title -->		
+							<div class="text-center"> 
+					          <img src="images/empty-cart-icon.png" alt="empty cart icon" class="img-responsive-inline" />
+					          <div class="divider divider--lg"></div>
+					          <h4 class="color">You have no items in your shopping cart.</h4>
+					          <div class="divider divider--lg"></div>
+					          <a class="btn btn--ys" href="{{ route('home') }}"><span class="icon icon-keyboard_arrow_left"></span>CONTINUE SHOPPING</a>		          
+					        </div>					
+						</div>
+					</div>
+				@endif
+
 			</div>
 		</div>
 		<!-- End CONTENT section --> 
+@endsection
+
+@section('footer')
+	@include('customer.layouts.footer')
 @endsection

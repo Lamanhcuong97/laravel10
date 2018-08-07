@@ -358,7 +358,7 @@
 					</li>					
 					<li>
 						<span class="name"><span class="expander">-</span>
-							<a href="about.html"><span class="act-underline">PAGES</span></a>
+							<a href="{{ route('about') }}"><span class="act-underline">PAGES</span></a>
 						</span>						
 						<ul class="multicolumn">
 							<li><a href="about.html">About</a></li>
@@ -379,7 +379,7 @@
 					<li>
 						<span class="name">
 							<span class="expander">-</span>
-							<a href="listing.html"><span class="act-underline">WOMEN’s<span class="badge badge--menu">NEW</span></span></a>
+							<a href="{{ route('list', ['slug' => 'women']) }}"><span class="act-underline">WOMEN’s<span class="badge badge--menu">NEW</span></span></a>
 						</span>
 						<ul class="multicolumn-level">
 							<li>
@@ -460,7 +460,7 @@
 					<li>
 						<span class="name">
 							<span class="expander">-</span>
-							<a href="listing.html"><span class="act-underline">MEN’s<span class="badge badge--menu badge--color">SALE</span></span></a>
+							<a href="{{ route('list', ['slug' => 'men']) }}"><span class="act-underline">MEN’s<span class="badge badge--menu badge--color">SALE</span></span></a>
 						</span>
 						<ul class="multicolumn-level">
 							<li>
@@ -594,7 +594,7 @@
 
 											<li class="dropdown dropdown-mega-menu">
 												<span class="dropdown-toggle extra-arrow"></span>
-												<a href="listing.html" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">WOMEN’s<span class="badge badge--menu">NEW</span></span></a>
+												<a href="{{ route('list', ['women']) }}" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">WOMEN’s<span class="badge badge--menu">NEW</span></span></a>
 												<ul class="dropdown-menu megamenu" role="menu">
 													<li class="dl-back"><a href="#"><span class="icon icon-chevron_left"></span>back</a></li>
 													<li class="col-sm-3">
@@ -736,7 +736,7 @@
 											</li>
 											<li class="dropdown dropdown-mega-menu">
 												<span class="dropdown-toggle extra-arrow"></span>
-												<a href="listing.html" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">MEN’s<span class="badge badge--menu badge--color">SALE</span></span></a>
+												<a href="{{ route('list', ['slug' => 'men']) }}" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">MEN’s<span class="badge badge--menu badge--color">SALE</span></span></a>
 												<ul class="dropdown-menu megamenu" role="menu">
 													<li class="dl-back"><a href="#"><span class="icon icon-chevron_left"></span>back</a></li>
 													<li class="col-sm-3">
@@ -879,7 +879,7 @@
 
 											<li class="dropdown dropdown-mega-menu">
 												<span class="dropdown-toggle extra-arrow"></span>
-												<a href="listing.html" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">FOR KIDS</span></a>
+												<a href="{{ route('list', ['slug' => 'men']) }}" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">FOR KIDS</span></a>
 												<ul class="dropdown-menu megamenu" role="menu">
 													<li class="dl-back"><a href="#"><span class="icon icon-chevron_left"></span>back</a></li>
 													<li class="col-sm-3">
@@ -1021,13 +1021,13 @@
 											</li>
 											<li class="dropdown dropdown-mega-menu">
 												<span class="dropdown-toggle extra-arrow"></span>
-												<a href="listing.html" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">ABOUT US</span></a>
+												<a href="{{ route('about') }}" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">ABOUT US</span></a>
 												
 											</li>
 
 												<li class="dropdown dropdown-mega-menu">
 												<span class="dropdown-toggle extra-arrow"></span>
-												<a href="listing.html" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">CONTACT</span></a>
+												<a href="{{ route('contact') }}" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">CONTACT</span></a>
 												
 											</li>
 										</ul>
@@ -1041,7 +1041,8 @@
 									<div class="search link-inline">
 										<a href="#" class="search__open"><span class="icon icon-search"></span></a>
 										<div class="search-dropdown">
-											<form action="#" method="get">
+											<form action="{{ route('search') }}" method="get">
+												@csrf
 												<div class="input-outer">
 													<input type="search" name="search" value="" maxlength="128" placeholder="SEARCH:">
 													<button type="submit" title="" class="icon icon-search"></button>
@@ -1108,16 +1109,12 @@
 		{!! Toastr :: render () !!}
 		<script type="text/javascript">
 			var app_url = '{{ asset('') }}';
-
-
-		
-
-		
 		</script>
 
 
 		<script src="{{ asset('external/nouislider/nouislider.min.js') }}"></script>
 		<script src="{{ asset('external/elevatezoom/jquery.elevatezoom.js') }}"></script>
+		{{-- <script type="text/javascript" src="{{ asset('js/home.js') }}"></script> --}}
 		
 		
 	</body>

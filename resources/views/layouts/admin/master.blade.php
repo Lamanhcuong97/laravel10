@@ -323,9 +323,24 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('analysis.index') }}"><i class="fa fa-list-ul"></i>Thống kê doanh thu</a></li>
+            <li><a href="{{ route('analysis.index') }}"><i class="fa fa-list-ul"></i>Thống kê doanh thu năm</a></li>
+            <li><a href="{{ route('analysis.analysis_day_month') }}"><i class="fa fa-list-ul"></i>Thống kê doanh thu ngày,tháng</a></li>
             <li><a href="{{ route('analysis.products') }}"><i class="fa fa-plus-circle"></i>Thông kê doanh số</a></li>
             <li><a href="{{ route('analysis.products') }}"><i class="fa fa-plus-circle"></i>Sản phẩm bán chạy</a></li>
+          </ul>
+        </li>
+
+         <li class="treeview">
+          <a href="{{ route('category.index') }}">
+              <i class="fa fa-pie-chart"></i><span>Khuyến mại</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('promotions.index') }}"><i class="fa fa-list-ul"></i>Danh sách khuyến mại</a></li>
+            
+            
           </ul>
         </li>
         <li class="treeview">
@@ -352,6 +367,20 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('vendors.index') }}"><i class="fa fa-list-ul"></i>Danh sách nhà cung cấp</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+             <span class="glyphicon glyphicon-picture"></span>
+            <span>Quản lý Slider</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('sliders.index') }}"><i class="fa fa-list-ul"></i>Danh sách slider</a></li>
+            <li><a href="{{ route('sliders.create') }}"><i class="fa fa-plus-circle"></i> Thêm slider</a></li>
           </ul>
         </li>
 

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductDetail;
 use App\Vendor;
+use App\Slider;
+use DB;
 
 class HomeController extends Controller
 {
@@ -28,7 +30,8 @@ class HomeController extends Controller
     {
         $products = Product::all();
         $product_new = Product::with(['gallery_products','product_details', 'vendor'])->select()->orderBy('created_at', 'desc')->limit(5)->get();
-        return view('customer.index', compact('products', 'product_new'));
+        $slider = Slider::all();
+        return view('customer.index', compact('products', 'product_new', 'slider'));
     }
 
     public function show($slug){
@@ -87,6 +90,34 @@ class HomeController extends Controller
          $sizes = ProductDetail::where('product_id', $request->product_id )->where('color_id', $request->color_id)
         ->join('sizes', 'product_details.size_id', '=', 'sizes.id')->select('sizes.*', 'product_details.product_id')->orderBy('id', 'desc')->distinct('size_id')->get();
         return $sizes;
+    }
+
+    public function list($slug){
+        if ($slug == 'men') {
+            $products = Product::where('category_id', 10)->paginate(4);
+            $slug = "men's";
+            return view('customer.list', compact('products','slug'));
+        }else{
+            $products = Product::where('category_id', 11)->paginate(4);
+            $slug = "women's";
+            return view('customer.list', compact('products', 'slug'));
+        }
+        
+    }
+
+     public function about(){
+        $products = Product::all();
+        return view('customer.about', compact('products'));
+    }
+     public function contact(){
+        $products = Product::all();
+        return view('customer.contact', compact('products'));
+    }
+
+    public function search(Request $request){
+        $products = Product::with('gallery_products')->where('name', 'LIKE', '%'.$request->search .'%')->get();
+        $slug = $request->search;
+        return view('customer.search', compact('products', 'slug'));
     }
     
 }

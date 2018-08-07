@@ -13,6 +13,8 @@ use App\Size;
 use App\ProductDetail;
 use Auth;
 use Toastr;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class CartsController extends Controller
 {
@@ -205,6 +207,16 @@ class CartsController extends Controller
 
 
         }
+        $carts = Cart::content();
+        $user = array('email'=> $request->email, 'name' => $request->name);
+        
+
+         $data = array('carts'=> $carts, 'total' => Cart::total(0), 'subtotal' => Cart::subtotal(0) ,'tax' => Cart::tax(0), 'name' => $request->name, 'phone' => $request->phone_number, 'address' => $request->address);
+          Mail::send('mails.sendmail', $data, function($message) use ($user) {
+             $message->to($user['email'],$user['name'] )->subject
+                ('Mua hàng trên shop của Lã Mạnh Cường');
+             $message->from('jivocter@gmail.com','Shop Lã Mạnh Cường');
+          });
         Cart::destroy();
         return redirect('/');
     }
