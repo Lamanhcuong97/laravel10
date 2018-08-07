@@ -90,7 +90,7 @@ Route::prefix('admin')->group(function () {
         Route::post('product_best_seller', 'Admin\AnalysisController@product_best_seller')->name('analysis.product_best_seller');
         Route::post('analysis/generate-pdf','Admin\AnalysisController@generatePDF')->name('analysis.pdf');
 
-        // Slider
+        // Sliderss
         Route::get('sliders', 'Admin\SlidersController@index')->name('sliders.index');
         Route::post('sliders', 'Admin\SlidersController@store')->name('sliders.create');
         Route::get('sliders/list', 'Admin\SlidersController@images')->name('sliders.list');
